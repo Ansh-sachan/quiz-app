@@ -29,7 +29,7 @@ export default function QuizQuestionStep({
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -50 }}
       transition={{ duration: 0.4 }}
-      className="space-y-6"
+      className='space-y-6'
     >
       <QuizQuestionCard
         id={question.id}
@@ -39,18 +39,18 @@ export default function QuizQuestionStep({
         onSelect={onSelect}
       />
 
-      <div className="flex justify-end">
+      <div className='flex justify-end'>
         {!isLastQuestion ? (
           <button
             onClick={onNext}
-            className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+            className='mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition'
           >
             Next
           </button>
         ) : (
           <button
             onClick={onSubmit}
-            className="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+            className='mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition'
           >
             Submit
           </button>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { Settings } from "./Settings";
 
 interface QuizModalProps {
   quiz: {
@@ -61,6 +62,7 @@ export default function QuizModal({ quiz, onClose, onStart }: QuizModalProps) {
         >
           Start Quiz
         </button>
+      <Settings />
       </motion.div>
     </motion.div>
   );
