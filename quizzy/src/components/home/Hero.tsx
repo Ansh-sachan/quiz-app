@@ -43,7 +43,7 @@ export const Hero = () => {
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.8 }}
-          className="mt-4 text-xl text-muted-foreground"
+          className="mt-4 text-xl text-muted-foreground text-[var(--text-secondary)]"
         >
           Ready to challenge your intellect? Dive into mind-bending quizzes and rise on the leaderboard!
         </motion.p>
