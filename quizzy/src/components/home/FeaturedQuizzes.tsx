@@ -18,7 +18,7 @@ export default function FeaturedQuizzes() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {featured.map(quiz => (
-          <QuizCard key={quiz.id} quiz={quiz} />
+          <QuizCard key={quiz.id} {...quiz} />
         ))}
       </div>
 
