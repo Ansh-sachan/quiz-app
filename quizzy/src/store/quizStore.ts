@@ -1,26 +1,36 @@
 import { create } from "zustand";
 
-
 type QuizState = {
   currentQuestionIndex: number;
   score: number;
-  answers: number[];
-  setAnswer: (index: number, answer: number) => void;
+  answers: string[]; // Assuming answer is represented by index of selected option
+  setAnswer: (questionIndex: number, answerIndex: number) => void;
   nextQuestion: () => void;
+  prevQuestion: () => void;
+  goToQuestion: (index: number) => void;
+  increaseScore: () => void
+  resetQuiz: () => void;
 };
 
 export const useQuizStore = create<QuizState>((set) => ({
   currentQuestionIndex: 0,
   score: 0,
   answers: [],
-  setAnswer: (index, answer) =>
+  setAnswer: (questionIndex, answer) =>
     set((state) => {
       const updatedAnswers = [...state.answers];
-      updatedAnswers[index] = answer;
+      updatedAnswers[questionIndex] = answer;
       return { answers: updatedAnswers };
     }),
   nextQuestion: () =>
     set((state) => ({
       currentQuestionIndex: state.currentQuestionIndex + 1,
     })),
+  prevQuestion: () =>
+    set((state) => ({
+      currentQuestionIndex: Math.max(0, state.currentQuestionIndex - 1),
+    })),
+  goToQuestion: (index) => set({ currentQuestionIndex: index }),
+  resetQuiz: () => set({ currentQuestionIndex: 0, score: 0, answers: [] }),
+  increaseScore : () => set((state) => ({ score: state.score + 1 }))
 }));
