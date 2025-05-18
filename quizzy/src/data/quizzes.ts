@@ -302,73 +302,199 @@ export const quizzes = [
     }
   ]
    },
-  // {
-  //   id: 3,
-  //   title: "React JS Concepts",
-  //   description: "Challenge your understanding of core React concepts and hooks.",
-  //   difficulty: "Intermediate",
-  //   tags: ["react", "hooks", "javascript", "frontend"],
-  //   questions: [
-  //     {
-  //       id: 301,
-  //       question: "Which hook is used to manage state in a functional component?",
-  //       options: ["useRef", "useEffect", "useState", "useContext"],
-  //       correctAnswer: "useState"
-  //     },
-  //     {
-  //       id: 302,
-  //       question: "What is the default behavior of `useEffect`?",
-  //       options: [
-  //         "Runs after every render",
-  //         "Runs only on mount",
-  //         "Runs before render",
-  //         "Runs only when state updates"
-  //       ],
-  //       correctAnswer: "Runs after every render"
-  //     },
-  //     {
-  //       id: 303,
-  //       question: "Keys in React lists help with what?",
-  //       options: [
-  //         "Styling",
-  //         "Improving performance",
-  //         "Tracking element identity",
-  //         "None of the above"
-  //       ],
-  //       correctAnswer: "Tracking element identity"
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 4,
-  //   title: "Node.js & Express",
-  //   description: "Test your backend knowledge using Node.js and Express framework.",
-  //   difficulty: "Intermediate",
-  //   tags: ["node", "express", "backend", "javascript"],
-  //   questions: [
-  //     {
-  //       id: 401,
-  //       question: "Which method is used to create a server in Node.js?",
-  //       options: ["http.listen()", "http.createServer()", "server.start()", "express.init()"],
-  //       correctAnswer: "http.createServer()"
-  //     },
-  //     {
-  //       id: 402,
-  //       question: "Which middleware is used to parse JSON bodies in Express?",
-  //       options: ["bodyParser.json()", "express.json()", "jsonParser()", "express.body()"],
-  //       correctAnswer: "express.json()"
-  //     },
-  //     {
-  //       id: 403,
-  //       question: "What does `req.params` contain in Express?",
-  //       options: [
-  //         "Query string parameters",
-  //         "Form data",
-  //         "URL route parameters",
-  //         "Header information"
-  //       ],
-  //       correctAnswer: "URL route parameters"
-  //     }
-  //   ]
-  // }
+   {
+  id: 3,
+  title: "Science Concepts",
+  description: "Test your understanding of foundational, intermediate, and advanced science concepts.",
+  tags: ["biology", "physics", "chemistry", "general science"],
+  difficulty: "easy",
+  questions: [
+    // EASY
+    {
+      difficulty: "easy",
+      question: "What is the main function of the heart in the human body?",
+      options: [
+        "To digest food",
+        "To pump blood throughout the body",
+        "To control thoughts and emotions",
+        "To filter waste from blood"
+      ],
+      answer: "To pump blood throughout the body",
+      explanation: "The heart is a muscular organ that pumps blood throughout the body via the circulatory system."
+    },
+    {
+      difficulty: "easy",
+      question: "Which gas do plants absorb from the atmosphere for photosynthesis?",
+      options: [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      answer: "Carbon dioxide",
+      explanation: "Plants take in carbon dioxide and use it along with sunlight and water to make food in a process called photosynthesis."
+    },
+    {
+      difficulty: "easy",
+      question: "What is H2O commonly known as?",
+      options: [
+        "Oxygen",
+        "Hydrogen peroxide",
+        "Salt",
+        "Water"
+      ],
+      answer: "Water",
+      explanation: "H2O is the chemical formula for water, consisting of two hydrogen atoms and one oxygen atom."
+    },
+    {
+      difficulty: "easy",
+      question: "What is the force that pulls objects toward the Earth?",
+      options: [
+        "Magnetism",
+        "Friction",
+        "Electricity",
+        "Gravity"
+      ],
+      answer: "Gravity",
+      explanation: "Gravity is the force that attracts objects toward the center of the Earth."
+    },
+    {
+      difficulty: "easy",
+      question: "Which organ is responsible for removing waste from the blood?",
+      options: [
+        "Heart",
+        "Liver",
+        "Kidney",
+        "Lungs"
+      ],
+      answer: "Kidney",
+      explanation: "The kidneys filter waste products from the blood and excrete them in urine."
+    },
+
+    // MEDIUM
+    {
+      difficulty: "medium",
+      question: "What is the function of mitochondria in a cell?",
+      options: [
+        "Protein synthesis",
+        "Waste disposal",
+        "Energy production",
+        "Storage of genetic material"
+      ],
+      answer: "Energy production",
+      explanation: "Mitochondria are the powerhouse of the cell, generating ATP through cellular respiration."
+    },
+    {
+      difficulty: "medium",
+      question: "Which law states that energy cannot be created or destroyed, only transformed?",
+      options: [
+        "Law of Conservation of Mass",
+        "Newton’s Third Law",
+        "Law of Conservation of Energy",
+        "Hooke’s Law"
+      ],
+      answer: "Law of Conservation of Energy",
+      explanation: "The Law of Conservation of Energy states that energy remains constant; it can be transformed but not created or destroyed."
+    },
+    {
+      difficulty: "medium",
+      question: "Which element is most abundant in the Earth's crust?",
+      options: [
+        "Iron",
+        "Aluminum",
+        "Silicon",
+        "Oxygen"
+      ],
+      answer: "Oxygen",
+      explanation: "Oxygen is the most abundant element in the Earth’s crust, making up about 46% by weight."
+    },
+    {
+      difficulty: "medium",
+      question: "What is the pH value of a neutral substance?",
+      options: [
+        "0",
+        "7",
+        "14",
+        "5"
+      ],
+      answer: "7",
+      explanation: "A substance with a pH of 7 is neutral; lower is acidic and higher is basic."
+    },
+    {
+      difficulty: "medium",
+      question: "Which part of the brain controls balance and coordination?",
+      options: [
+        "Cerebrum",
+        "Medulla oblongata",
+        "Cerebellum",
+        "Hypothalamus"
+      ],
+      answer: "Cerebellum",
+      explanation: "The cerebellum is responsible for coordinating voluntary movements, balance, and posture."
+    },
+
+    // HARD
+    {
+      difficulty: "hard",
+      question: "Which scientist proposed the theory of general relativity?",
+      options: [
+        "Isaac Newton",
+        "Galileo Galilei",
+        "Albert Einstein",
+        "Niels Bohr"
+      ],
+      answer: "Albert Einstein",
+      explanation: "Einstein’s theory of general relativity describes gravity as a result of the curvature of spacetime caused by mass."
+    },
+    {
+      difficulty: "hard",
+      question: "What is the name of the process where DNA is copied into mRNA?",
+      options: [
+        "Replication",
+        "Translation",
+        "Transcription",
+        "Mutation"
+      ],
+      answer: "Transcription",
+      explanation: "Transcription is the process of copying a segment of DNA into messenger RNA (mRNA)."
+    },
+    {
+      difficulty: "hard",
+      question: "In quantum physics, what principle states that you cannot simultaneously know the exact position and momentum of a particle?",
+      options: [
+        "Pauli Exclusion Principle",
+        "Uncertainty Principle",
+        "Superposition Principle",
+        "Wave-Particle Duality"
+      ],
+      answer: "Uncertainty Principle",
+      explanation: "Heisenberg’s Uncertainty Principle states that the more precisely the position is known, the less precisely the momentum is known."
+    },
+    {
+      difficulty: "hard",
+      question: "Which particle in the atom has no electric charge?",
+      options: [
+        "Electron",
+        "Proton",
+        "Neutron",
+        "Positron"
+      ],
+      answer: "Neutron",
+      explanation: "Neutrons are found in the nucleus of an atom and have no electric charge."
+    },
+    {
+      difficulty: "hard",
+      question: "Which of the following phenomena is evidence for the wave nature of light?",
+      options: [
+        "Photoelectric effect",
+        "Diffraction",
+        "Refraction",
+        "Absorption"
+      ],
+      answer: "Diffraction",
+      explanation: "Diffraction is a behavior of waves where they bend around obstacles or spread through narrow openings, showing light's wave nature."
+    }
+  ]
+}
+
 ];

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import QuizCard from "./QuizCard";
 import QuizModal from "./QuizModal";
@@ -9,12 +9,16 @@ export default function AllQuizzes() {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [selectedQuiz, setSelectedQuiz] = useState(null);
+  const [filteredQuizzes, setFilteredQuizzes] = useState(quizzes);
 
-  const filtered = quizzes.filter(
-    (q) =>
-      q.title.toLowerCase().includes(search.toLowerCase()) ||
-      q.tags.some((tag) => tag.toLowerCase().includes(search.toLowerCase()))
-  );
+  useEffect(() => {
+    const filtered = quizzes.filter(
+      (q) =>
+        q.title.toLowerCase().includes(search.toLowerCase()) ||
+        q.tags.some((tag) => tag.toLowerCase().includes(search.toLowerCase()))
+    );
+    setFilteredQuizzes(filtered);
+  }, [search]);
 
   const handleStartQuiz = (id: number) => {
     navigate(`/quiz/${id}`);
@@ -56,8 +60,8 @@ export default function AllQuizzes() {
         }}
         className='grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto'
       >
-        {filtered.length ? (
-          filtered.map((quiz) => (
+        {filteredQuizzes.length ? (
+          filteredQuizzes.map((quiz) => (
             <QuizCard
               key={quiz.id}
               {...quiz}
