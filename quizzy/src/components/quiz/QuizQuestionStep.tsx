@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import QuizQuestionCard from "./QuizQuestionCard";
 
 interface QuizQuestionStepProps {
+  id: number;
   question: {
-    id: number;
     question: string;
     options: string[];
+    correctAnswer: string;
   };
   selectedOption: string | null;
   onSelect: (option: string) => void;
@@ -16,6 +17,7 @@ interface QuizQuestionStepProps {
 }
 
 export default function QuizQuestionStep({
+  id,
   question,
   selectedOption,
   onSelect,
@@ -26,7 +28,7 @@ export default function QuizQuestionStep({
 }: QuizQuestionStepProps) {
   return (
     <motion.div
-      key={question.id}
+      key={id}
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -50 }}
@@ -34,7 +36,7 @@ export default function QuizQuestionStep({
       className='space-y-6'
     >
       <QuizQuestionCard
-        id={question.id}
+        id={id}
         question={question.question}
         options={question.options}
         selectedOption={selectedOption}

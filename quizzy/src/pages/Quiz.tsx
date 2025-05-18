@@ -30,7 +30,7 @@ export const Quiz = () => {
     if (newQuiz && updatedQuestions) {
       setQuiz({ ...newQuiz, questions: updatedQuestions });
     }
-  }, [id]);
+  }, [id, difficulty]);
 
   useEffect(() => {
     stop();
@@ -80,8 +80,9 @@ export const Quiz = () => {
           </p>
         </motion.div>
 
-        <div className='max-w-screen-md mx-auto space-y-10'>
+        <div className=' md:10/12 w-full mx-auto space-y-10'>
           <QuizQuestionStep
+            id={quiz.id}
             question={question}
             selectedOption={selectedOption}
             onSelect={handleSelect}

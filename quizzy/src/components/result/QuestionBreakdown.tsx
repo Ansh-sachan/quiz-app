@@ -3,7 +3,6 @@ import { CheckCircle2, XCircle } from "lucide-react";
 import { useState } from "react";
 
 interface Question {
-  id: number;
   question: string;
   correctAnswer: string;
   explanation?: string;
@@ -42,7 +41,7 @@ export const QuestionBreakdown = ({ questions, answers }: Props) => {
 
         return (
           <motion.div
-            key={q.id}
+            key={i}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: i * 0.08 }}

@@ -5,7 +5,7 @@ type QuizState = {
   score: number;
   answers: string[]; // Assuming answer is represented by index of selected option
   difficulty: "easy" | "medium" | "hard";
-  setAnswer: (questionIndex: number, answerIndex: number) => void;
+  setAnswer: (questionIndex: number, answer: string) => void;
   nextQuestion: () => void;
   prevQuestion: () => void;
   goToQuestion: (index: number) => void;
@@ -22,7 +22,7 @@ export const useQuizStore = create<QuizState>((set) => ({
   setAnswer: (questionIndex, answer) =>
     set((state) => {
       const updatedAnswers = [...state.answers];
-      updatedAnswers[questionIndex] = answer;
+      updatedAnswers[questionIndex] = answer.toString();
       return { answers: updatedAnswers };
     }),
   nextQuestion: () =>

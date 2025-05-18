@@ -2,7 +2,6 @@ import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
 interface Question {
-  id: number;
   question: string;
   options: string[];
   correctAnswer: string;
@@ -49,7 +48,9 @@ export const generateQuizPDF = (quiz: Quiz) => {
       margin: { left: 14, right: 14 },
       didDrawPage: (data) => {
         // update currentY after table draw
-        currentY = data.cursor.y + 6;
+        if (data.cursor) {
+          currentY = data.cursor.y + 6;
+        }
       },
     });
 

@@ -45,7 +45,7 @@ export default function QuizQuestionCard({
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className='bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500 mb-6 md:min-w-3xl mx-auto'
+      className='bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500 mb-6 w-full mx-auto'
     >
       <div className='flex md:flex-row flex-col justify-between gap-4 items-center'>
         {/* Image section */}

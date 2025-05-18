@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useCountUp } from "../../utils/countUp";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 export const StatCard = ({
   endCount,

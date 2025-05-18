@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { StatCard } from "./StatCard";
-import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (

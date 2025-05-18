@@ -8,7 +8,9 @@ import { useNavigate } from "react-router-dom";
 export default function AllQuizzes() {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
-  const [selectedQuiz, setSelectedQuiz] = useState(null);
+  const [selectedQuiz, setSelectedQuiz] = useState<
+    (typeof quizzes)[number] | null
+  >(null);
   const [filteredQuizzes, setFilteredQuizzes] = useState(quizzes);
 
   useEffect(() => {
@@ -65,6 +67,7 @@ export default function AllQuizzes() {
             <QuizCard
               key={quiz.id}
               {...quiz}
+              difficulty={quiz.difficulty ?? "Unknown"}
               onClick={() => setSelectedQuiz(quiz)}
             />
           ))
@@ -78,7 +81,10 @@ export default function AllQuizzes() {
       <AnimatePresence>
         {selectedQuiz && (
           <QuizModal
-            quiz={selectedQuiz}
+            quiz={{
+              ...selectedQuiz,
+              difficulty: selectedQuiz.difficulty ?? "Unknown",
+            }}
             onClose={() => setSelectedQuiz(null)}
             onStart={handleStartQuiz}
           />
