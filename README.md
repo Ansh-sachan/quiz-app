@@ -19,14 +19,13 @@ A fully responsive and interactive quiz application that allows users to test th
 ## 🧠 Available Quiz Topics
 
 - ✅ General Knowledge
-- ✅ Entertainment
+- ✅ Chemistry
+- ✅ Mathematics
 - ✅ Web Development
-- ✅ Computer Science (CS)
-- ✅ CSS
 - ✅ Science
 
 Each topic includes **30 questions**:  
-→ 10 Easy | 10 Medium | 10 Hard
+→ 5 Easy | 5 Medium | 5 Hard
 
 ---
 
@@ -53,36 +52,27 @@ cd quiz-app
 ```bash
 npm run dev
 ```
+---
 
-🧪 Sample Quiz Flow
-User selects a quiz topic.
+## 🧪 Sample Quiz Flow
+- User selects a quiz topic.
+- Chooses difficulty level (Easy, Medium, Hard).
+- Answers a series of 10 questions.
+- At the end, sees a score and breakdown of correct vs. incorrect answers.
 
-Chooses difficulty level (Easy, Medium, Hard).
+---
 
-Answers a series of 10 questions.
-
-At the end, sees a score and breakdown of correct vs. incorrect answers.
-
-
-🔮 Future Plans
-🔐 User Authentication (Signup/Login)
-
-🧑‍🎓 User dashboard with quiz history and analytics
-
-✍️ Admin panel to create and manage quizzes
-
-📊 Leaderboards for global and topic-specific scores
-
-📁 Save progress in local storage or database
-
-🔄 Timer-based quiz mode
-
-📲 PWA support for offline use
-
-🌐 Backend integration with MongoDB or Firebase
-
-🧠 AI-generated question support
+## 🔮 Future Plans
+- 🔐 User Authentication (Signup/Login)
+- 🧑‍🎓 User dashboard with quiz history and analytics
+- ✍️ Admin panel to create and manage quizzes
+- 📊 Leaderboards for global and topic-specific scores
+- 📁 Save progress in local storage or database
+- 🔄 Timer-based quiz mode
+- 📲 PWA support for offline use
+- 🌐 Backend integration with MongoDB or Firebase
+- 🧠 AI-generated question support
 
 
-🧑‍💻 Author
-Ansh Sachan
+## 🧑‍💻 Author
+- Ansh Sachan
