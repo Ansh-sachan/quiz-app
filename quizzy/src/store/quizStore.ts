@@ -4,18 +4,21 @@ type QuizState = {
   currentQuestionIndex: number;
   score: number;
   answers: string[]; // Assuming answer is represented by index of selected option
+  difficulty: "easy" | "medium" | "hard";
   setAnswer: (questionIndex: number, answerIndex: number) => void;
   nextQuestion: () => void;
   prevQuestion: () => void;
   goToQuestion: (index: number) => void;
   increaseScore: () => void
   resetQuiz: () => void;
+  setDifficulty: (difficulty: "easy" | "medium" | "hard") => void
 };
 
 export const useQuizStore = create<QuizState>((set) => ({
   currentQuestionIndex: 0,
   score: 0,
   answers: [],
+  difficulty: "easy",
   setAnswer: (questionIndex, answer) =>
     set((state) => {
       const updatedAnswers = [...state.answers];
@@ -32,5 +35,6 @@ export const useQuizStore = create<QuizState>((set) => ({
     })),
   goToQuestion: (index) => set({ currentQuestionIndex: index }),
   resetQuiz: () => set({ currentQuestionIndex: 0, score: 0, answers: [] }),
-  increaseScore : () => set((state) => ({ score: state.score + 1 }))
+  increaseScore : () => set((state) => ({ score: state.score + 1 })),
+  setDifficulty: (difficulty) => set({ difficulty }),
 }));
