@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useQuizStore } from "../store/quizStore";
 import QuizQuestionStep from "../components/quiz/QuizQuestionStep";
+import { useSpeech } from "../hooks/useSpeech";
 
 export const Quiz = () => {
   const { id } = useParams();
   const [quiz, setQuiz] = useState<(typeof quizzes)[0] | undefined>(undefined);
   const navigate = useNavigate();
+  const { stop } = useSpeech();
   const {
     currentQuestionIndex,
     answers,
@@ -27,6 +29,10 @@ export const Quiz = () => {
       setQuiz({ ...newQuiz, questions: updatedQuestions });
     }
   }, [id]);
+
+  useEffect(() => {
+    stop();
+  }, [currentQuestionIndex, stop]);
 
   useEffect(() => {
     // Reset scroll on question change for better UX

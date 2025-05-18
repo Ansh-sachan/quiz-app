@@ -32,7 +32,7 @@ export const generateQuizPDF = (quiz: Quiz) => {
       body: q.options.map((opt, idx) => [
         opt,
         opt === q.correctAnswer ? "✅" : "",
-      ]),
+      ]), 
       head: [["Option", "Correct"]],
       theme: "striped",
       styles: { fontSize: 10 },

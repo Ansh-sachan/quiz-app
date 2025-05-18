@@ -47,7 +47,7 @@ export const QuestionBreakdown = ({ questions, answers }: Props) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: i * 0.08 }}
             className={`rounded-xl border-2 shadow-lg transition-all cursor-pointer ${
-              isCorrect
+              isCorrect && userAnswer
                 ? "border-green-600 bg-green-100 hover:bg-green-200"
                 : "border-red-600 bg-red-100 hover:bg-red-200"
             }`}
@@ -55,7 +55,7 @@ export const QuestionBreakdown = ({ questions, answers }: Props) => {
           >
             <div className='flex items-start justify-between p-5 sm:p-6 gap-4'>
               <div className='flex gap-3'>
-                {isCorrect ? (
+                {isCorrect && userAnswer ? (
                   <CheckCircle2 className='text-green-700 mt-1' size={24} />
                 ) : (
                   <XCircle className='text-red-700 mt-1' size={24} />
@@ -68,7 +68,9 @@ export const QuestionBreakdown = ({ questions, answers }: Props) => {
                     Your answer:{" "}
                     <span
                       className={`font-semibold ${
-                        isCorrect ? "text-green-800" : "text-red-800"
+                        isCorrect && userAnswer
+                          ? "text-green-800"
+                          : "text-red-800"
                       }`}
                     >
                       {userAnswer || "Not answered"}

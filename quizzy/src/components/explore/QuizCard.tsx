@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { ChartLine } from "lucide-react";
+// import { FaChartLine } from "react-icons/fa"; // For difficulty icon
 
 interface QuizCardProps {
   id: number;
@@ -9,20 +11,53 @@ interface QuizCardProps {
   onClick?: () => void;
 }
 
-export default function QuizCard({id, title, description, difficulty, tags, onClick }: QuizCardProps) {
+export default function QuizCard({
+  id,
+  title,
+  description,
+  difficulty,
+  tags,
+  onClick,
+}: QuizCardProps) {
   return (
     <motion.div
-      whileHover={{ scale: 1.02 }}
+      whileHover={{
+        scale: 1.05,
+        boxShadow: "0 8px 24px rgba(59, 130, 246, 0.4)", // soft blue glow shadow
+        filter: "none",
+        translateZ: 0,
+      }}
+      whileTap={{ scale: 0.97 }}
+      transition={{
+        type: "spring",
+        stiffness: 200,
+        damping: 20,
+        ease: "easeInOut",
+      }}
       onClick={onClick}
-      className="cursor-pointer bg-white rounded-xl p-5 shadow-md hover:shadow-xl transition border-t-4 border-blue-500"
+      className='cursor-pointer bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-[6px] border-blue-500 group'
     >
-      <h3 className="text-xl font-semibold text-blue-600 mb-2">{title}</h3>
-      <p className="text-gray-700 mb-2">{description}</p>
-      <div className="text-sm text-gray-500">Difficulty: {difficulty}</div>
-      <div className="flex gap-2 mt-3 flex-wrap">
-        {tags.map(tag => (
-          <span key={tag} className="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full">
-            {tag}
+      <h3 className='text-2xl font-bold text-blue-700 mb-3 group-hover:underline'>
+        {title}
+      </h3>
+
+      <p className='text-gray-800 mb-4 text-sm'>{description}</p>
+
+      <div className='flex items-center text-sm text-gray-600 mb-3'>
+        <ChartLine className='mr-2 text-blue-400' />
+        <span className='font-medium'>Difficulty:</span>&nbsp;
+        <span className='capitalize font-semibold text-blue-600'>
+          {difficulty}
+        </span>
+      </div>
+
+      <div className='flex flex-wrap gap-2'>
+        {tags.map((tag) => (
+          <span
+            key={tag}
+            className='hover:scale-105 transition-all bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 font-medium text-xs px-3 py-1 rounded-full shadow-sm'
+          >
+            #{tag}
           </span>
         ))}
       </div>
