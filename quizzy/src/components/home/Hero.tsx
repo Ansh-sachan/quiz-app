@@ -20,7 +20,7 @@ export const Hero = () => {
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.8 }}
-          className='text-6xl sm:text-5xl font-bold tracking-tight'
+          className='md:text-6xl text-4xl font-bold tracking-tight'
         >
           Dare Your Mind.
         </motion.h1>
