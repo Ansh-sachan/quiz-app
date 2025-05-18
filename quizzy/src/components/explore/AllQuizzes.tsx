@@ -27,7 +27,7 @@ export default function AllQuizzes() {
   };
 
   return (
-    <div className='min-h-screen bg-white py-14 px-6'>
+    <div className='min-h-screen bg-white py-14 px-6 mt-32'>
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

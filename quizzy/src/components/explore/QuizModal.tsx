@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { X } from "lucide-react"; // Lucide close icon
-import { Settings } from "./Settings";
 import { useQuizStore } from "../../store/quizStore";
 
 interface QuizModalProps {
@@ -112,11 +111,6 @@ export default function QuizModal({ quiz, onClose, onStart }: QuizModalProps) {
         >
           🚀 Start Quiz
         </motion.button>
-
-        {/* Optional Settings */}
-        <div className='mt-4'>
-          <Settings />
-        </div>
       </motion.div>
     </motion.div>
   );

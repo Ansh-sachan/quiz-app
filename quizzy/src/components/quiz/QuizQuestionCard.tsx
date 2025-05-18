@@ -9,6 +9,7 @@ interface QuizQuestionCardProps {
   options: string[];
   onSelect: (option: string) => void;
   selectedOption: string | null;
+  img: string;
 }
 
 export default function QuizQuestionCard({
@@ -17,6 +18,7 @@ export default function QuizQuestionCard({
   options,
   onSelect,
   selectedOption,
+  img,
 }: QuizQuestionCardProps) {
   const { speak } = useSpeech();
   const { currentQuestionIndex: index } = useQuizStore();
@@ -28,7 +30,6 @@ export default function QuizQuestionCard({
     speak(fullText);
   };
 
-  // Animation variants for the checkmark
   const checkVariants = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: { pathLength: 1, opacity: 1 },
@@ -39,30 +40,45 @@ export default function QuizQuestionCard({
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className='bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500 mb-6'
+      className='bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500 mb-6 md:min-w-3xl mx-auto'
     >
-      <div className='flex items-center justify-between mb-4'>
-        <p className='text-lg font-semibold text-gray-800 max-w-[90%]'>
-          Q{index + 1}. {question}
-        </p>
-        <button
-          onClick={handleSpeak}
-          className='text-blue-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded'
-          title='Read aloud'
-          aria-label='Read question aloud'
-        >
-          <Volume2 size={20} />
-        </button>
-      </div>
+      <div className='flex md:flex-row flex-col justify-between gap-4 items-center'>
+        {/* Image section */}
+        {img && (
+          <div className='mb-4 md:basis-1/3 basis-full'>
+            <img
+              src={img}
+              alt={`Illustration for question ${index + 1}`}
+              className='w-full h-auto object-cover rounded-lg shadow-sm'
+              loading='lazy'
+            />
+          </div>
+        )}
+        <div className='md:basis-2/3 basis-full'>
+          {/* Question and speak button */}
+          <div className='flex items-center justify-between mb-4'>
+            <p className='text-lg font-semibold text-gray-800 max-w-[90%]'>
+              Q{index + 1}. {question}
+            </p>
+            <button
+              onClick={handleSpeak}
+              className='text-blue-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded'
+              title='Read aloud'
+              aria-label='Read question aloud'
+            >
+              <Volume2 size={20} />
+            </button>
+          </div>
 
-      <ul className='space-y-3'>
-        {options.map((option, i) => {
-          const isSelected = selectedOption === option;
-          return (
-            <li key={i}>
-              <label
-                htmlFor={`option-${id}-${i}`}
-                className={`flex items-center cursor-pointer select-none rounded-md px-4 py-2 transition
+          {/* Options */}
+          <ul className='space-y-3'>
+            {options.map((option, i) => {
+              const isSelected = selectedOption === option;
+              return (
+                <li key={i}>
+                  <label
+                    htmlFor={`option-${id}-${i}`}
+                    className={`flex items-center cursor-pointer select-none rounded-md px-4 py-2 transition
                   border
                   ${
                     isSelected
@@ -70,52 +86,50 @@ export default function QuizQuestionCard({
                       : "bg-gray-100 hover:bg-blue-50 border-transparent"
                   }
                   `}
-              >
-                {/* Hidden native checkbox */}
-                <input
-                  type='checkbox'
-                  id={`option-${id}-${i}`}
-                  checked={isSelected}
-                  onChange={() => onSelect(option)}
-                  className='sr-only'
-                  aria-checked={isSelected}
-                />
-
-                {/* Custom checkbox */}
-                <span
-                  className={`relative flex items-center justify-center w-5 h-5 mr-3 rounded border-2
+                  >
+                    <input
+                      type='checkbox'
+                      id={`option-${id}-${i}`}
+                      checked={isSelected}
+                      onChange={() => onSelect(option)}
+                      className='sr-only'
+                      aria-checked={isSelected}
+                    />
+                    <span
+                      className={`relative flex items-center justify-center w-5 h-5 mr-3 rounded border-2
                     ${
                       isSelected
                         ? "bg-blue-500 text-white"
                         : "border-gray-400 bg-white"
                     }
                   `}
-                  aria-hidden='true'
-                >
-                  <motion.svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    strokeWidth={3}
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    className='w-4 h-4 text-white absolute'
-                    initial='hidden'
-                    animate={isSelected ? "visible" : "hidden"}
-                    variants={checkVariants}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  >
-                    <motion.path d='M4 12l6 6L20 6' />
-                  </motion.svg>
-                </span>
-
-                <span>{option}</span>
-              </label>
-            </li>
-          );
-        })}
-      </ul>
+                      aria-hidden='true'
+                    >
+                      <motion.svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        viewBox='0 0 24 24'
+                        fill='none'
+                        stroke='currentColor'
+                        strokeWidth={3}
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        className='w-4 h-4 text-white absolute'
+                        initial='hidden'
+                        animate={isSelected ? "visible" : "hidden"}
+                        variants={checkVariants}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                        <motion.path d='M4 12l6 6L20 6' />
+                      </motion.svg>
+                    </span>
+                    <span>{option}</span>
+                  </label>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
     </motion.div>
   );
 }

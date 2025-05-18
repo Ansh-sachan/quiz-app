@@ -12,6 +12,7 @@ interface QuizQuestionStepProps {
   onNext: () => void;
   onSubmit: () => void;
   isLastQuestion: boolean;
+  img: string;
 }
 
 export default function QuizQuestionStep({
@@ -21,6 +22,7 @@ export default function QuizQuestionStep({
   onNext,
   onSubmit,
   isLastQuestion,
+  img,
 }: QuizQuestionStepProps) {
   return (
     <motion.div
@@ -37,6 +39,7 @@ export default function QuizQuestionStep({
         options={question.options}
         selectedOption={selectedOption}
         onSelect={onSelect}
+        img={img}
       />
 
       <div className='flex justify-end'>

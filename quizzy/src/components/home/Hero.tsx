@@ -11,7 +11,7 @@ export const Hero = () => {
         visible: { transition: { staggerChildren: 0.2 } },
         hidden: {},
       }}
-      className='relative flex flex-col-reverse lg:flex-row items-center justify-between px-6 lg:px-20 py-12 mt-48 text-[var(--primary-color)] '
+      className='relative flex flex-col-reverse lg:flex-row items-center justify-between px-6 lg:px-20 py-12 md:mt-48 mt-20 text-[var(--primary-color)] '
     >
       {/* Text Content */}
       <div className='max-w-xl'>

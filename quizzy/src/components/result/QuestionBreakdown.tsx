@@ -33,7 +33,7 @@ export const QuestionBreakdown = ({ questions, answers }: Props) => {
           transition: { staggerChildren: 0.08 },
         },
       }}
-      className='space-y-6 max-w-4xl mx-auto px-4 md:px-6 lg:px-8'
+      className='space-y-6 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-10'
     >
       {questions.map((q, i) => {
         const userAnswer = answers[i];
@@ -46,25 +46,28 @@ export const QuestionBreakdown = ({ questions, answers }: Props) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: i * 0.08 }}
-            className={`rounded-xl border-2 shadow-lg transition-all cursor-pointer ${
+            className={`rounded-xl border-2 shadow-md transition-all cursor-pointer ${
               isCorrect && userAnswer
                 ? "border-green-600 bg-green-100 hover:bg-green-200"
                 : "border-red-600 bg-red-100 hover:bg-red-200"
             }`}
             onClick={() => toggleOpen(i)}
           >
-            <div className='flex items-start justify-between p-5 sm:p-6 gap-4'>
-              <div className='flex gap-3'>
+            <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 p-4 sm:p-5 md:p-6'>
+              <div className='flex gap-3 sm:items-start'>
                 {isCorrect && userAnswer ? (
-                  <CheckCircle2 className='text-green-700 mt-1' size={24} />
+                  <CheckCircle2
+                    className='text-green-700 mt-1 shrink-0'
+                    size={22}
+                  />
                 ) : (
-                  <XCircle className='text-red-700 mt-1' size={24} />
+                  <XCircle className='text-red-700 mt-1 shrink-0' size={22} />
                 )}
                 <div>
-                  <p className='font-bold text-lg text-gray-900 mb-1'>
+                  <p className='font-semibold text-gray-900 text-base sm:text-lg mb-1'>
                     Q{i + 1}. {q.question}
                   </p>
-                  <p className='text-base text-gray-800'>
+                  <p className='text-gray-800 text-sm sm:text-base'>
                     Your answer:{" "}
                     <span
                       className={`font-semibold ${
@@ -77,7 +80,7 @@ export const QuestionBreakdown = ({ questions, answers }: Props) => {
                     </span>
                   </p>
                   {!isCorrect && (
-                    <p className='text-base text-gray-800 mt-1'>
+                    <p className='text-gray-800 text-sm sm:text-base mt-1'>
                       Correct answer:{" "}
                       <span className='text-blue-800 font-semibold'>
                         {q.correctAnswer}
@@ -86,7 +89,7 @@ export const QuestionBreakdown = ({ questions, answers }: Props) => {
                   )}
                 </div>
               </div>
-              <span className='text-sm text-gray-600 underline hover:text-black'>
+              <span className='text-sm text-gray-600 underline hover:text-black self-end sm:self-auto'>
                 {isOpen ? "Hide" : "Explain"}
               </span>
             </div>
@@ -97,7 +100,7 @@ export const QuestionBreakdown = ({ questions, answers }: Props) => {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.25 }}
-                className='px-6 pb-5 text-gray-800 text-[15px]'
+                className='px-4 sm:px-6 pb-4 text-gray-800 text-sm sm:text-[15px]'
               >
                 {q.explanation ? (
                   <div className='bg-white rounded-md p-4 border-l-4 border-blue-600 shadow-sm'>

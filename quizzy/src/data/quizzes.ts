@@ -5,6 +5,7 @@ export const quizzes = [
     description: "Test your general knowledge across various subjects.",
     difficulty: "Easy",
     tags: ["general knowledge", "trivia"],
+    img : "/assets/quiz/gk.svg",
     questions: [
     {
       "question": "What is the largest planet in our solar system?",
@@ -119,6 +120,7 @@ export const quizzes = [
     description: "Test your understanding of foundational, intermediate, and advanced web development concepts.",
     difficulty: "Easy",
     tags: ["html", "css", "javascript", "frontend"],
+    img : "/assets/quiz/web.svg",
     questions: [
     {
       "difficulty": "easy",
@@ -308,6 +310,7 @@ export const quizzes = [
   description: "Test your understanding of foundational, intermediate, and advanced science concepts.",
   tags: ["biology", "physics", "chemistry", "general science"],
   difficulty: "easy",
+  img : "/assets/quiz/science.svg",
   questions: [
     // EASY
     {
@@ -495,6 +498,243 @@ export const quizzes = [
       explanation: "Diffraction is a behavior of waves where they bend around obstacles or spread through narrow openings, showing light's wave nature."
     }
   ]
+},
+{
+    id: 4,
+    title: "Math Concepts",
+    description: "Challenge your knowledge across various levels of mathematics from basic arithmetic to advanced reasoning.",
+    tags: ["math", "arithmetic", "algebra", "geometry", "logic"],
+    img : "/assets/quiz/math.svg",
+    questions: [
+        {
+            difficulty: "easy",
+            question: "What is the value of 7 + 5?",
+            options: ["10", "11", "12", "13"],
+            answer: "12",
+            explanation: "Adding 7 and 5 gives 12."
+        },
+        {
+            difficulty: "easy",
+            question: "What is the square of 4?",
+            options: ["8", "12", "16", "20"],
+            answer: "16",
+            explanation: "4 squared means 4 × 4, which is 16."
+        },
+        {
+            difficulty: "easy",
+            question: "What is 100 divided by 10?",
+            options: ["5", "10", "20", "25"],
+            answer: "10",
+            explanation: "100 ÷ 10 equals 10."
+        },
+        {
+            difficulty: "easy",
+            question: "What shape has 3 sides?",
+            options: ["Circle", "Square", "Triangle", "Pentagon"],
+            answer: "Triangle",
+            explanation: "A triangle has three sides."
+        },
+        {
+            difficulty: "easy",
+            question: "Which number is even?",
+            options: ["3", "7", "10", "13"],
+            answer: "10",
+            explanation: "Even numbers are divisible by 2; 10 is even."
+        },
+
+        {
+            difficulty: "medium",
+            question: "What is the value of 5² + 3²?",
+            options: ["25", "34", "50", "64"],
+            answer: "34",
+            explanation: "5² = 25, 3² = 9, and 25 + 9 = 34."
+        },
+        {
+            difficulty: "medium",
+            question: "Solve: 3(x - 2) = 12. What is x?",
+            options: ["2", "4", "5", "6"],
+            answer: "6",
+            explanation: "3(x - 2) = 12 ⇒ x - 2 = 4 ⇒ x = 6."
+        },
+        {
+            difficulty: "medium",
+            question: "What is the perimeter of a rectangle with length 8 and width 3?",
+            options: ["22", "24", "26", "28"],
+            answer: "22",
+            explanation: "Perimeter = 2 × (8 + 3) = 22."
+        },
+        {
+            difficulty: "medium",
+            question: "If 2x + 3 = 11, what is x?",
+            options: ["3", "4", "5", "6"],
+            answer: "4",
+            explanation: "2x = 8 ⇒ x = 4."
+        },
+        {
+            difficulty: "medium",
+            question: "What is the area of a triangle with base 6 and height 4?",
+            options: ["10", "12", "14", "24"],
+            answer: "12",
+            explanation: "Area = ½ × base × height = ½ × 6 × 4 = 12."
+        },
+
+          {
+            difficulty: "hard",
+            question: "What is the derivative of x² with respect to x?",
+            options: ["1", "2x", "x", "x²"],
+            answer: "2x",
+            explanation: "The derivative of x² with respect to x is 2x."
+        },
+        {
+            difficulty: "hard",
+            question: "If sin(θ) = 1/2, what is θ in degrees?",
+            options: ["30", "45", "60", "90"],
+            answer: "30",
+            explanation: "sin(30°) = 1/2."
+        },
+        {
+            difficulty: "hard",
+            question: "What is the sum of the interior angles of a pentagon?",
+            options: ["360", "540", "720", "900"],
+            answer: "540",
+            explanation: "Sum = (n - 2) × 180 = 3 × 180 = 540° for a pentagon (5 sides)."
+        },
+        {
+            difficulty: "hard",
+            question: "What is the value of log₁₀(1000)?",
+            options: ["2", "3", "4", "5"],
+            answer: "3",
+            explanation: "10³ = 1000, so log₁₀(1000) = 3."
+        },
+        {
+            "difficulty": "hard",
+            "question": "Solve the inequality: 2x - 5 > 9",
+            "options": ["x > 2", "x > 3", "x > 5", "x > 7"],
+            "answer": "x > 7",
+            "explanation": "2x > 14 ⇒ x > 7."
+        }
+    ]
+},
+ {
+  id: 5,
+  title: "Chemistry Concepts",
+  description: "Test your understanding of fundamental to advanced chemistry concepts.",
+  difficulty: "Mixed",
+  tags: ["chemistry", "atoms", "reactions", "organic", "inorganic"],
+  img : "/assets/quiz/chemistry.svg",
+  questions: [
+    // Easy Level (5 Questions)
+    {
+      difficulty: "easy",
+      question: "What is the chemical symbol for water?",
+      options: ["O2", "H2", "H2O", "OH"],
+      answer: "H2O",
+      explanation: "Water consists of two hydrogen atoms and one oxygen atom, hence H2O."
+    },
+    {
+      difficulty: "easy",
+      question: "What is the pH value of a neutral substance?",
+      options: ["0", "7", "14", "1"],
+      answer: "7",
+      explanation: "A pH of 7 is considered neutral, like pure water."
+    },
+    {
+      difficulty: "easy",
+      question: "Which gas do plants absorb from the atmosphere?",
+      options: ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
+      answer: "Carbon dioxide",
+      explanation: "Plants absorb carbon dioxide for photosynthesis."
+    },
+    {
+      difficulty: "easy",
+      question: "Which of these is a metal?",
+      options: ["Hydrogen", "Oxygen", "Iron", "Chlorine"],
+      answer: "Iron",
+      explanation: "Iron is a metal known for its strength and conductivity."
+    },
+    {
+      difficulty: "easy",
+      question: "What is table salt chemically known as?",
+      options: ["NaCl", "KCl", "NaOH", "HCl"],
+      answer: "NaCl",
+      explanation: "Table salt is sodium chloride, represented as NaCl."
+    },
+
+    // Medium Level (5 Questions)
+    {
+      difficulty: "medium",
+      question: "Which of the following is a noble gas?",
+      options: ["Oxygen", "Nitrogen", "Argon", "Chlorine"],
+      answer: "Argon",
+      explanation: "Argon is a noble gas in Group 18 of the periodic table."
+    },
+    {
+      difficulty: "medium",
+      question: "Which acid is found in vinegar?",
+      options: ["Citric acid", "Acetic acid", "Hydrochloric acid", "Sulfuric acid"],
+      answer: "Acetic acid",
+      explanation: "Vinegar contains acetic acid, which gives it its sour taste and smell."
+    },
+    {
+      difficulty: "medium",
+      question: "Which part of the atom contains protons and neutrons?",
+      options: ["Shell", "Orbit", "Nucleus", "Electron cloud"],
+      answer: "Nucleus",
+      explanation: "The nucleus is the center of the atom, containing protons and neutrons."
+    },
+    {
+      difficulty: "medium",
+      question: "Which of the following compounds is an example of a base?",
+      options: ["HCl", "NaOH", "H2SO4", "CH3COOH"],
+      answer: "NaOH",
+      explanation: "NaOH (sodium hydroxide) is a strong base."
+    },
+    {
+      difficulty: "medium",
+      question: "Which element is liquid at room temperature?",
+      options: ["Mercury", "Iron", "Gold", "Copper"],
+      answer: "Mercury",
+      explanation: "Mercury is the only metal that is liquid at room temperature."
+    },
+
+    // Hard Level (5 Questions)
+    {
+      difficulty: "hard",
+      question: "What is the molecular geometry of methane (CH₄)?",
+      options: ["Tetrahedral", "Trigonal planar", "Bent", "Linear"],
+      answer: "Tetrahedral",
+      explanation: "Methane has a tetrahedral geometry due to sp³ hybridization."
+    },
+    {
+      difficulty: "hard",
+      question: "Which orbital has a spherical shape?",
+      options: ["s orbital", "p orbital", "d orbital", "f orbital"],
+      answer: "s orbital",
+      explanation: "The s orbital is spherical in shape."
+    },
+    {
+      difficulty: "hard",
+      question: "Which hybridization occurs in ethene (C2H4)?",
+      options: ["sp", "sp2", "sp3", "dsp2"],
+      answer: "sp2",
+      explanation: "Ethene has sp² hybridization with a double bond between the carbons."
+    },
+    {
+      difficulty: "hard",
+      question: "Which of the following compounds exhibits hydrogen bonding?",
+      options: ["CH4", "NH3", "CO2", "C2H6"],
+      answer: "NH3",
+      explanation: "Ammonia (NH3) shows hydrogen bonding due to nitrogen's high electronegativity."
+    },
+    {
+      difficulty: "hard",
+      question: "What is the oxidation state of chromium in Cr2O7^2-?",
+      options: ["+2", "+3", "+6", "+7"],
+      answer: "+6",
+      explanation: "Each oxygen is -2, and the total charge is -2, so each Cr must be +6."
+    }
+  ]
 }
+
 
 ];

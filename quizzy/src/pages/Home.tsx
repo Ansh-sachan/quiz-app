@@ -8,7 +8,7 @@ export const Home = () => {
     <div>
       <Header />
       <Hero />
-      <div className='flex flex-col items-center justify-center'>
+      <div className='flex flex-col items-center justify-center mb-6'>
         {/* Call to Action */}
         <Link to={"/quizzes"}>
           <motion.button

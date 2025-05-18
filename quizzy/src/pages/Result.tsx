@@ -15,8 +15,6 @@ export const Result = () => {
   const navigate = useNavigate();
   const [quiz, setQuiz] = useState<(typeof quizzes)[0] | undefined>(undefined);
   const { answers, score, resetQuiz, difficulty } = useQuizStore();
-  const quizQuestions =
-    quiz?.questions.filter((q) => q.difficulty === difficulty) ?? [];
 
   useEffect(() => {
     const newQuiz = quizzes.find((q) => q.id === Number(id));
@@ -25,12 +23,14 @@ export const Result = () => {
 
   if (!quiz) {
     return (
-      <div className='text-center mt-20 text-red-500 font-semibold'>
+      <div className='text-center mt-20 text-red-600 font-semibold px-4'>
         Quiz not found.
       </div>
     );
   }
 
+  const quizQuestions =
+    quiz?.questions.filter((q) => q.difficulty === difficulty) ?? [];
   const totalQuestions = quizQuestions.length;
   const percentage = ((score / totalQuestions) * 100).toFixed(1);
   const chartData = [
@@ -43,18 +43,25 @@ export const Result = () => {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className='min-h-screen bg-gradient-to-br from-blue-50 to-white py-12 px-6'
+      className='min-h-screen bg-gradient-to-br from-blue-50 to-white py-8 px-4 sm:px-6 lg:px-12'
     >
-      <div className='max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-10 space-y-8'>
-        <ResultHeader />
+      <div className='max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-6 sm:p-10 flex flex-col gap-8 overflow-auto'>
+        {/* Sticky header on large screens */}
+        <div className='sticky top-0 bg-white z-10 py-4 sm:py-6 border-b border-gray-200'>
+          <ResultHeader />
+        </div>
+
         <ResultSummary
           title={quiz.title}
           score={score}
           total={totalQuestions}
           percentage={percentage}
         />
+
         <ResultChart data={chartData} />
+
         <QuestionBreakdown questions={quizQuestions} answers={answers} />
+
         <ResultActions
           onRetake={() => {
             resetQuiz();
