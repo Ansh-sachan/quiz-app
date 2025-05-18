@@ -20,7 +20,7 @@ export const Home = () => {
             }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className='relative text-2xl mt-8 px-10 py-5 bg-gradient-to-r from-blue-600  to-blue-300 text-white font-bold rounded-2xl shadow-2xl animate-pulse hover:animate-none tracking-wide'
+            className='relative text-2xl mt-8 px-10 py-5 bg-gradient-to-r from-blue-600  to-blue-300 text-white font-bold rounded-2xl shadow-2xl hover:animate-none tracking-wide'
           >
             <span className='mr-2 animate-bounce'>🚀</span> Start Quiz Now
           </motion.button>

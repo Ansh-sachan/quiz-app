@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ChartLine } from "lucide-react";
 // import { FaChartLine } from "react-icons/fa"; // For difficulty icon
 
 interface QuizCardProps {
@@ -12,10 +11,8 @@ interface QuizCardProps {
 }
 
 export default function QuizCard({
-  id,
   title,
   description,
-  difficulty,
   tags,
   onClick,
 }: QuizCardProps) {
@@ -43,13 +40,13 @@ export default function QuizCard({
 
       <p className='text-gray-800 mb-4 text-sm'>{description}</p>
 
-      <div className='flex items-center text-sm text-gray-600 mb-3'>
+      {/* <div className='flex items-center text-sm text-gray-600 mb-3'>
         <ChartLine className='mr-2 text-blue-400' />
         <span className='font-medium'>Difficulty:</span>&nbsp;
         <span className='capitalize font-semibold text-blue-600'>
           {difficulty}
         </span>
-      </div>
+      </div> */}
 
       <div className='flex flex-wrap gap-2'>
         {tags.map((tag) => (

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useSpeech } from "../../hooks/useSpeech";
 import { Volume2 } from "lucide-react";
 import { useQuizStore } from "../../store/quizStore";
+import { SpeakingWave } from "./SpeakingWave";
 
 interface QuizQuestionCardProps {
   id: number;
@@ -20,14 +21,18 @@ export default function QuizQuestionCard({
   selectedOption,
   img,
 }: QuizQuestionCardProps) {
-  const { speak } = useSpeech();
+  const { speak, isSpeaking, stop } = useSpeech();
   const { currentQuestionIndex: index } = useQuizStore();
 
   const handleSpeak = () => {
-    const fullText = `Question ${
-      index + 1
-    }: ${question}. Options are: ${options.join(", ")}`;
-    speak(fullText);
+    if (isSpeaking) {
+      stop();
+    } else {
+      const fullText = `Question ${
+        index + 1
+      }: ${question}. Options are: ${options.join(", ")}`;
+      speak(fullText);
+    }
   };
 
   const checkVariants = {
@@ -60,14 +65,25 @@ export default function QuizQuestionCard({
             <p className='text-lg font-semibold text-gray-800 max-w-[90%]'>
               Q{index + 1}. {question}
             </p>
-            <button
-              onClick={handleSpeak}
-              className='text-blue-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded'
-              title='Read aloud'
-              aria-label='Read question aloud'
-            >
-              <Volume2 size={20} />
-            </button>
+            <div onClick={handleSpeak} className='flex items-center gap-2'>
+              {!isSpeaking && (
+                <button
+                  className={`text-blue-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded p-1 transition duration-200`}
+                  title={isSpeaking ? "Stop reading" : "Read aloud"}
+                  aria-label='Toggle speech'
+                >
+                  <Volume2 size={22} />
+                </button>
+              )}
+              {isSpeaking && (
+                <div
+                  className='w-[32px] h-[32px] mt-1 p-[4px] border border-blue-400 rounded-full shadow-sm bg-blue-50 flex items-center justify-center transition-all overflow-hidden'
+                  title='Speaking...'
+                >
+                  <SpeakingWave />
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Options */}

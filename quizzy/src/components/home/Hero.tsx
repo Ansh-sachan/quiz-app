@@ -32,7 +32,7 @@ export const Hero = () => {
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.8 }}
-          className='text-3xl sm:text-4xl font-semibold mt-4 mb-10'
+          className='text-3xl sm:text-4xl font-semibold mt-4 md:mb-10 mb-5'
         >
           Click. Think. Conquer.
         </motion.h2>
@@ -55,7 +55,7 @@ export const Hero = () => {
           initial='hidden'
           animate='visible'
           transition={{ delay: 0.6, duration: 0.8 }}
-          className='flex gap-6 flex-wrap mt-8 justify-start'
+          className='flex flex-row gap-6 mt-8 justify-start'
         >
           <StatCard endCount={10000} label='Players Tested' />
           <StatCard endCount={500} label='Brain-Boosting Questions' />

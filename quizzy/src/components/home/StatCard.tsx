@@ -17,21 +17,21 @@ export const StatCard = ({
     <motion.div
       whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(255,255,255,0.2)" }}
       transition={{ type: "spring", stiffness: 200 }}
-      className="cursor-pointer relative w-full sm:w-auto px-6 py-4 rounded-2xl bg-white/10 backdrop-blur-lg shadow-lg border border-white/20 hover:border-white/30 hover:shadow-xl transition duration-300 ease-in-out flex items-center gap-4"
+      className='cursor-pointer relative basis-[45%] px-6 py-4 rounded-2xl bg-white/10 backdrop-blur-lg shadow-lg border border-white/20 hover:border-white/30 hover:shadow-xl transition duration-300 ease-in-out flex items-center gap-4'
     >
       {/* Optional Icon */}
       {icon && (
-        <div className="text-3xl sm:text-4xl text-[var(--primary-color)]">
+        <div className='text-3xl sm:text-4xl text-[var(--primary-color)]'>
           {icon}
         </div>
       )}
 
       {/* Text Content */}
-      <div className="flex flex-col">
-        <span className="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] leading-tight">
+      <div className='flex flex-col'>
+        <span className='text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] leading-tight'>
           {count.toLocaleString()}+
         </span>
-        <span className="text-sm sm:text-base text-muted-foreground font-medium">
+        <span className='text-sm sm:text-base text-muted-foreground font-medium'>
           {label}
         </span>
       </div>
